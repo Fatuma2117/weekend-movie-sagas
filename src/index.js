@@ -15,6 +15,8 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_A_MOVIE', fetchMovie);
+    yield takeEvery('FETCH_GENRES', fetchGenres);
+
 
 }
 
@@ -34,15 +36,20 @@ function* fetchAllMovies() {
 
 function* fetchMovie(action) {
     try{
-        const movie = yield axios({
-            method: 'GET',
-            url: `api/movie/${action.payload}`
-        })
+        const movie = yield axios.get(`api/movie/${action.payload}`)
         console.log('one movie:', action.payload);
-        yield put({
-            type: 'SET_MOVIE',
-            payload: movie.data
-        })
+        yield put({ type: 'SET_MOVIE', payload: movie.data })
+        console.log(movie.data)
+    } catch{
+        console.log('error in fetchMovie');
+    }
+}
+
+function* fetchMovie(action) {
+    try{
+        const genres = yield axios.get(`api/genre/${action.payload}`)
+        console.log('one movie:', action.payload);
+        yield put({ type: 'SET_MOVIE', payload: movie.data })
         console.log(movie.data)
     } catch{
         console.log('error in fetchMovie');
