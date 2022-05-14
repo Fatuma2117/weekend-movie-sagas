@@ -5,6 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 function Details() {
 
     const movie = useSelector(store => store.movie)
+    const genres = useSelector(store => store.genres)
+
     const history = useHistory();
 
     const backToHome = () => {
@@ -13,6 +15,12 @@ function Details() {
 
     return (
         <>
+         {genres && 
+                genres.map((genre) => {
+                return (
+                    <p>{genre.name}</p>
+                )
+            })}
 
             {movie &&
                 movie.map((movie) => {
