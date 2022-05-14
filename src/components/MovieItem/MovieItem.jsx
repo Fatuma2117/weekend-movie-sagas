@@ -12,7 +12,7 @@ function MovieItem({ movie }) {
 
     const fetchMovie = () => {
         dispatch({
-            type: 'FETCH_MOVIE',
+            type: 'FETCH_A_MOVIE',
             payload: movie.id
         })
         history.push('/details')
