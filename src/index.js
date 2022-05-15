@@ -52,7 +52,7 @@ function* fetchGenres(action) {
         yield put({ type: 'SET_GENRES', payload: genres.data })
         console.log(genres.data)
     } catch{
-        console.log('error in fetchMovie');
+        console.log('error in fetchGenres');
     }
 }
 
@@ -70,7 +70,7 @@ const movies = (state = [], action) => {
 }
 
 // Used to store the movie genres
-const genres = (state = [], action) => {
+const genres = (state = ['bollywood'], action) => {
     switch (action.type) {
         case 'SET_GENRES':
             return action.payload;

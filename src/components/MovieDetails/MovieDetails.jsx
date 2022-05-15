@@ -1,13 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import {useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
-function Details() {
+function MovieDetails() {
 
     const movie = useSelector(store => store.movie)
     const genres = useSelector(store => store.genres)
 
     const history = useHistory();
+
+   
 
     const backToHome = () => {
         history.push('/')
@@ -18,7 +20,10 @@ function Details() {
          {genres && 
                 genres.map((genre) => {
                 return (
-                    <p>{genre.name}</p>
+                    <div key={genre.id}>
+                         <p>{genre.name}</p>
+                    </div>
+                   
                 )
             })}
 
@@ -40,4 +45,4 @@ function Details() {
 }
 
 
-export default Details;
+export default MovieDetails;
