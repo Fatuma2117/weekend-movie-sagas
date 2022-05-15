@@ -49,7 +49,7 @@ const MovieForm = () => {
 
         </select>
         {/* <button>Add New Movie</button> */}
-        <button variant="outlined">Outlined</button>
+        <button variant="outlined">Add New Movie</button>
       </form>
     </div>
   );
