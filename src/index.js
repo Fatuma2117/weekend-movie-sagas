@@ -16,7 +16,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_A_MOVIE', fetchMovie);
     yield takeEvery('FETCH_GENRES', fetchGenres);
-
+    yield takeEvery('CREATE_MOVIE', createMovie);
 
 }
 
@@ -56,6 +56,19 @@ function* fetchGenres(action) {
     }
 }
 
+function* createMovie(action) {
+    try{
+        console.log(action.payload)
+
+        const newMovie = yield axios.post(`api/movie/${action.payload}`)
+        console.log(action.payload)
+        yield put({ type: 'SET_MOVIES', payload: newMovie.data })
+        console.log(response)
+    } catch{
+        console.log('error in CreateMovie');
+    }
+}
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -70,7 +83,7 @@ const movies = (state = [], action) => {
 }
 
 // Used to store the movie genres
-const genres = (state = ['bollywood'], action) => {
+const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
             return action.payload;
