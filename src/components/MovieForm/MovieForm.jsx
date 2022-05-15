@@ -1,49 +1,46 @@
 import React, {useState}from 'react';
 import { useDispatch } from 'react-redux';
 
-const NewPlantForm = () => {
+const MovieForm = () => {
     const dispatch = useDispatch();
     
-    let [name, setName] = useState('');
-    let [kingdom, setKingdom] = useState('');
-    let [clade, setClade] = useState('');
-    let [order, setOrder] = useState('');
-    let [family, setFamily] = useState('');
-    let [subfamily, setSubfamily] = useState('');
-    let [genus, setGenus] = useState('');
+    let [title, setTitle] = useState('');
+    let [url, setUrl] = useState('');
+    let [desc, setDesc] = useState('');
+ 
 
-    const addNewPlant = (event) => {
+
+    const addNewMovie = (event) => {
         event.preventDefault();
         dispatch({
-          type: 'CREATE_PLANT',
+          type: 'CREATE_MOVIE',
           payload: { 
-            name,
-            kingdom,
-            clade,
-            order,
-            family,
-            subfamily,
-            genus,
+            title,
+            url,
+            desc
+          
           }
         })
     }
 
     return (
         <div>
-          <h3>This is the form</h3>
-          <form onSubmit={addNewPlant}>
-          <input type='text' placeholder="name" value={name} onChange={(e) => { setName(e.target.value) }} />
-          <input type='text' placeholder="kingdom" value={kingdom} onChange={(e) => { setKingdom(e.target.value) }} />
-          <input type='text' placeholder="clade" value={clade} onChange={(e) => { setClade(e.target.value) }} />
-          <input type='text' placeholder="order" value={order} onChange={(e) => { setOrder(e.target.value) }} />
-          <input type='text' placeholder="family" value={family} onChange={(e) => { setFamily(e.target.value) }} />
-          <input type='text' placeholder="subfamily" value={subfamily} onChange={(e) => { setSubfamily(e.target.value) }} />
-          <input type='text' placeholder="genus" value={genus} onChange={(e) => { setGenus(e.target.value) }} />
-          <input type='submit' value='Add New Plant' />
+          <h3>Enter new movie</h3>
+          <form onSubmit={addNewMovie}>
+          <input type='text' placeholder="Title" value={title} onChange={(e) => { setTitle(e.target.value) }} />
+          <input type='text' placeholder="Url" value={url} onChange={(e) => { setUrl(e.target.value) }} />
+          <textarea placeholder="Description" value={desc} onChange={(e) => { setDesc(e.target.value) }} />
+          <select>
+           
+        <option value="Adventure">Adventure</option>
+        <option value="Animated">Animated</option>
+        <option value="Biographical">Biographical</option>
+      </select>
+          <button>Add New Movie</button>
           </form>
         </div>
     );
 }
 
 
-export default NewPlantForm;
+export default MovieForm;
