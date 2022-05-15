@@ -60,8 +60,16 @@ function* createMovie(action) {
     try{
         console.log(action.payload)
 
-        const newMovie = yield axios.post(`api/movie/${action.payload}`)
-        console.log(action.payload)
+        // const newMovie = yield axios.post(`api/movie/${action.payload}`)
+        // console.log(action.payload)
+
+        console.log('this is the post payload:',action.payload);
+        const response = yield axios({
+          method: 'POST',
+          url: `/api/movie`,
+          data: action.payload
+        })
+
         yield put({ type: 'SET_MOVIES', payload: newMovie.data })
         console.log(response)
     } catch{
