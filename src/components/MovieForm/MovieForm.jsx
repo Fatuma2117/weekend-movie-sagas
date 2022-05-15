@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import '../MovieForm/MovieForm.css'
 
 const MovieForm = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,8 @@ const MovieForm = () => {
           <option value="Superhero">Superhero</option>
 
         </select>
-        <button>Add New Movie</button>
+        {/* <button>Add New Movie</button> */}
+        <button variant="outlined">Outlined</button>
       </form>
     </div>
   );

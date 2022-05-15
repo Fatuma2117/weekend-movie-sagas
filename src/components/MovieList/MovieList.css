@@ -1,4 +1,5 @@
 .movies {
     display : flex;
     flex-wrap: wrap;
+    margin: 100px 250px 250px 250px;
 }

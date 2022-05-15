@@ -24,7 +24,7 @@ function MovieItem({ movie }) {
 
 
     return (
-        <div>
+        <div >
             <p>{movie.title}</p>
             <img src={movie.poster}
                 onClick={fetchMovie}
