@@ -9,8 +9,6 @@ function MovieDetails() {
 
     const history = useHistory();
 
-   
-
     const backToHome = () => {
         history.push('/')
     }
@@ -20,7 +18,7 @@ function MovieDetails() {
          {genres && 
                 genres.map((genre) => {
                 return (
-                    <div key={genre.id}>
+                    <div >
                          <p>{genre.name}</p>
                     </div>
                    
