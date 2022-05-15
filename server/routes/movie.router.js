@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
     console.log('New Movie Id:', result.rows[0].id); //ID IS HERE!
     
     const createdMovieId = result.rows[0].id
-
+// use req.params for genre_id??
     // Now handle the genre reference
     const insertMovieGenreQuery = `
       INSERT INTO "movies_genres" ("movie_id", "genre_id")
