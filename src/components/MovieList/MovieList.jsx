@@ -13,12 +13,12 @@ function MovieList() {
     }, []);
 
     return (
-        <main className=''>
-            <h1>MovieList</h1>
+        <main className='movieList'>
+            <h1>Movie List</h1>
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                     <MovieItem key= {movie.id} movie={movie} />
+                        <MovieItem key={movie.id} movie={movie} />
                     );
                 })}
             </section>

@@ -16,12 +16,12 @@ const MovieForm = () => {
     dispatch({
       type: 'CREATE_MOVIE',
       payload: {
-       title,
-      poster,
-       description
-      } 
+        title,
+        poster,
+        description
+      }
     })
-  
+
   }
 
   return (

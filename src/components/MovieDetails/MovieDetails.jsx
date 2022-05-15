@@ -1,4 +1,4 @@
-import {useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
@@ -15,15 +15,15 @@ function MovieDetails() {
 
     return (
         <>
-         {genres && 
+            {genres &&
                 genres.map((genre) => {
-                return (
-                    <div >
-                         <p>{genre.name}</p>
-                    </div>
-                   
-                )
-            })}
+                    return (
+                        <div >
+                            <p>{genre.name}</p>
+                        </div>
+
+                    )
+                })}
 
             {movie &&
                 movie.map((movie) => {
